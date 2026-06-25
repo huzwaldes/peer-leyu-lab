@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简明指南 · ayx</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+            background: linear-gradient(145deg, #fce4cc 0%, #f5d0b3 50%, #ebba99 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.6;
+            color: #2e241e;
+        }
+
+        .guide-card {
+            max-width: 800px;
+            width: 100%;
+            background: #fffcf9;
+            border-radius: 36px;
+            padding: 2.8rem 2.8rem 3rem;
+            box-shadow: 0 18px 36px -8px rgba(120, 70, 40, 0.24),
+                        0 6px 12px -4px rgba(80, 45, 25, 0.08);
+            transition: box-shadow 0.25s;
+        }
+
+        .guide-card:hover {
+            box-shadow: 0 24px 44px -10px rgba(110, 60, 30, 0.28);
+        }
+
+        .opening-line {
+            font-size: 1.2rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: #8b6b53;
+            border-left: 4px solid #d6906a;
+            padding-left: 1rem;
+            margin-bottom: 1.6rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #3a2b22;
+            margin-bottom: 1.2rem;
+        }
+
+        h1 small {
+            font-size: 1.1rem;
+            font-weight: 350;
+            color: #7a5e4b;
+            display: inline-block;
+            margin-left: 0.5rem;
+        }
+
+        .subhead {
+            font-size: 1rem;
+            color: #5e4638;
+            background: #f2e6dd;
+            display: inline-block;
+            padding: 0.2rem 1.2rem 0.2rem 1rem;
+            border-radius: 40px;
+            margin-bottom: 1.8rem;
+            font-weight: 400;
+        }
+
+        .intro-text {
+            font-size: 1.02rem;
+            margin-bottom: 2rem;
+            color: #3b2d25;
+        }
+
+        .intro-text strong {
+            color: #ac6e4a;
+            font-weight: 500;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 0 0 2rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .feature-list li {
+            background: #f7efe8;
+            padding: 0.9rem 1.4rem;
+            border-radius: 60px;
+            font-size: 0.98rem;
+            color: #2f231c;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            border: 1px solid #ecd9ca;
+            transition: background 0.15s;
+        }
+
+        .feature-list li:hover {
+            background: #f2e2d4;
+        }
+
+        .feature-list li::before {
+            content: "▹";
+            color: #c88664;
+            font-weight: 500;
+            font-size: 1.2rem;
+            margin-right: 0.3rem;
+        }
+
+        .reminder-block {
+            background: #f9ede4;
+            border-radius: 28px;
+            padding: 1.4rem 1.8rem;
+            margin: 2rem 0 2rem 0;
+            border: 1px solid #e9cfbc;
+        }
+
+        .reminder-block p {
+            font-size: 0.95rem;
+            color: #3e3029;
+        }
+
+        .reminder-block p:first-child {
+            margin-bottom: 0.5rem;
+        }
+
+        .link-sentence {
+            background: #ffffffd6;
+            padding: 0 0.4rem;
+        }
+
+        .guide-link {
+            display: inline-block;
+            background: #d6906a;
+            color: #fffcf9;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.1rem 0.7rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: 0 2px 6px rgba(170, 95, 55, 0.2);
+        }
+
+        .guide-link:hover {
+            background: #bb764f;
+            transform: scale(1.02);
+        }
+
+        .guide-link:active {
+            background: #a5623d;
+            transform: scale(0.97);
+        }
+
+        .closing-note {
+            margin-top: 2.4rem;
+            padding-top: 1.4rem;
+            border-top: 2px dashed #ddc9bc;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.92rem;
+            color: #5b473c;
+        }
+
+        .closing-note span {
+            opacity: 0.7;
+        }
+
+        .faq-mini {
+            font-size: 0.92rem;
+            background: #f2e4da;
+            border-radius: 24px;
+            padding: 1rem 1.5rem;
+            margin-top: 1.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
+        }
+
+        .faq-mini dt {
+            font-weight: 500;
+            color: #4f382c;
+            margin-bottom: 0.1rem;
+        }
+
+        .faq-mini dd {
+            color: #4d3b30;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem;
+            }
+            .guide-card {
+                padding: 2rem 1.5rem;
+                border-radius: 28px;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
+            .feature-list li {
+                border-radius: 40px;
+                padding: 0.8rem 1.2rem;
+            }
+            .reminder-block {
+                padding: 1.2rem 1.2rem;
+            }
+            .closing-note {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="guide-card">
+    <div class="opening-line">一份简明的访问指引</div>
+
+    <h1>ayx <small>· 内容与定位</small></h1>
+    <div class="subhead">信息密度 · 实用视角</div>
+
+    <div class="intro-text">
+        无论你是初次接触还是希望更高效地利用资源，<strong>ayx</strong> 
+        所呈现的结构化信息都值得你花几分钟熟悉。以下是从使用场景与提醒角度整理的几个要点。
+    </div>
+
+    <ul class="feature-list">
+        <li>模块清晰，主要功能区域一目了然，减少不必要的跳转</li>
+        <li>页面更新保持适度节奏，内容以实用与准确为前提</li>
+        <li>非注册用户也可浏览绝大部分公开信息，无需额外操作</li>
+        <li>移动端与桌面端布局均经过适配，阅读体验连贯</li>
+    </ul>
+
+    <div class="reminder-block">
+        <p>📌 访问前提醒</p>
+        <p>建议使用主流浏览器的最新版本，并保持网络稳定。站点未使用第三方跟踪脚本，所有内容均为静态页面，加载速度较快。若遇到显示异常，可尝试刷新或清除缓存后重试。</p>
+    </div>
+
+    <div class="faq-mini">
+        <dl>
+            <dt>❓ 是否需要注册？</dt>
+            <dd>不需要。全部内容均可直接阅读。</dd>
+        </dl>
+        <dl>
+            <dt>❓ 内容多久更新？</dt>
+            <dd>按实际需要不定期调整，无固定周期。</dd>
+        </dl>
+    </div>
+
+    <p style="margin-top: 1.2rem; font-size: 0.96rem; color: #4e3a30;">
+        想要直接探索？完整信息已在 
+        <a href="https://website-portal-ayx.com" class="guide-link">ayx</a> 
+        集中呈现，无需额外跳转。
+    </p>
+
+    <div class="closing-note">
+        <span>© 简明说明 · 保持开放</span>
+        <span style="letter-spacing: 0.02em;">— 基于实际情况编写</span>
+    </div>
+</div>
+
+</body>
+</html>
